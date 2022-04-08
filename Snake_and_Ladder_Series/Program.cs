@@ -10,6 +10,11 @@ namespace Snake_and_Ladder_Series
     {
         static void Main(string[] args)
         {
+            Console.WriteLine("Welcome to Snake & Ladder\n");
+            Console.WriteLine("Game Begin\n");
+            Console.WriteLine("Currently player at position 0");
+
+            Console.ReadLine();
         }
     }
 }
