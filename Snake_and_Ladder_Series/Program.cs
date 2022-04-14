@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace UC4_Player_Reaches_the_Winning_Position_100
+namespace UC5_Check_Exact_Winning_Position
 {
     internal class Program
     {
@@ -34,6 +34,11 @@ namespace UC4_Player_Reaches_the_Winning_Position_100
                 {
                     Console.WriteLine($"\n You reached at bottom of ladder, So you moved {getDieNumber} steps ahead\n");
                     currentBoardPosition += getDieNumber;   //it,s ladder that's why moves steps a head by dice number
+                }
+                if (currentBoardPosition>100)       // Checking that if current position is total board number or above
+                {
+                    Console.WriteLine("You get out of range position");
+                    currentBoardPosition -= getDieNumber;   //player position remains same if player get out of range position
                 }
                 if(currentBoardPosition < 0) // in case current position is 0 then player restart the game
                 {
