@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace UC5_Check_Exact_Winning_Position
+namespace UC6_Report_the_Number_of_Times_the_Dice_was_Played
 {
     internal class Program
     {
@@ -16,6 +16,7 @@ namespace UC5_Check_Exact_Winning_Position
             int totalBoardNumber = 100;
             int currentBoardPosition = 0;
             int getDieNumber;
+            int countDiceRolls = 1;
             int[] snake = { 5, 15, 35, 67, 88, 98 };     // Creating array for positions of snakes in board
             int[] ladder = { 6, 13, 30, 45, 56, 78 };   // Creating array for positions of ladders in board
             Random random = new Random();   // Creating Object for random Method
@@ -35,18 +36,21 @@ namespace UC5_Check_Exact_Winning_Position
                     Console.WriteLine($"\n You reached at bottom of ladder, So you moved {getDieNumber} steps ahead\n");
                     currentBoardPosition += getDieNumber;   //it,s ladder that's why moves steps a head by dice number
                 }
-                if (currentBoardPosition>100)       // Checking that if current position is total board number or above
+                if (currentBoardPosition > 100)       // Checking that if current position is total board number or above
                 {
                     Console.WriteLine("You get out of range position");
                     currentBoardPosition -= getDieNumber;   //player position remains same if player get out of range position
                 }
-                if(currentBoardPosition < 0) // in case current position is 0 then player restart the game
+                if (currentBoardPosition < 0) // in case current position is 0 then player restart the game
                 {
                     currentBoardPosition = 0;
                 }
+                countDiceRolls += 1;    //Count the no of times Dice Rolls the Player to Win The Game
+                Console.WriteLine("No of times Dice Rolls : " + countDiceRolls);
+                
+            }
                 Console.WriteLine("\nYou are now at positon: " + currentBoardPosition);
                 Console.ReadLine();
-            }
         }
     }
 }
